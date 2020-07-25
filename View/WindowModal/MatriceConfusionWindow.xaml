@@ -1,0 +1,27 @@
+﻿<Window x:Class="OCR.View.WindowModal.MatriceConfusionWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:OCR.View.WindowModal"
+        mc:Ignorable="d"
+        Title="MatriceConfusionWindow" WindowStartupLocation="CenterOwner" Height="530" Width="470"  Style="{StaticResource CustomWindow}" Background="{StaticResource BackgroundColor}">
+    <StackPanel>
+        <Label Content="Matrice de confusion" HorizontalAlignment="Center" Foreground="{StaticResource ForegroundColor}" FontSize="17"></Label>
+        <Border VerticalAlignment="Bottom" Height="1" Background="{StaticResource BorderColor}" Margin="50 0 50 0"></Border>
+        <Label Content="Classe réel" Foreground="AliceBlue" HorizontalAlignment="Center"></Label>
+        <Grid Margin="10 0 0 0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="20"></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <TextBlock Text="Classe prédite"  VerticalAlignment="Center" Foreground="AliceBlue">
+                <TextBlock.LayoutTransform>
+                    <RotateTransform Angle="-90" />
+                </TextBlock.LayoutTransform>
+            </TextBlock>
+            <Canvas Grid.Column="1" Margin="0 10 0 0" Height="400" Width="400" Name="Matrice"></Canvas>
+        </Grid>
+        <Button Content="Quitter" Height="30" Padding="3" Command="{Binding CloseWindowsCommand}" Style="{StaticResource ButtonTemplate}" Background="{StaticResource ButtonColor}" BorderBrush="{StaticResource ButtonBorderColor}"  Width="100" Margin="10"></Button>
+    </StackPanel>
+</Window>

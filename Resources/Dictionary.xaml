@@ -1,0 +1,268 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <SolidColorBrush x:Key="ButtonColor">#cb9f74</SolidColorBrush>
+    <SolidColorBrush x:Key="ButtonBorderColor">#C47961</SolidColorBrush>
+    <SolidColorBrush x:Key="BorderColor">#9C4B51</SolidColorBrush>
+    <SolidColorBrush x:Key="ForegroundColor">#C49261</SolidColorBrush>
+    <SolidColorBrush x:Key="BackgroundColor">#21252b</SolidColorBrush>
+    <SolidColorBrush x:Key="BackgroundColor2">#282C34</SolidColorBrush>
+    <BitmapImage x:Key="Trash" UriSource="/Resources/Images/Trash.png" />
+    <BitmapImage x:Key="Next" UriSource="/Resources/Images/Next.png" />
+    <BitmapImage x:Key="Back" UriSource="/Resources/Images/Back.png" />
+    <BitmapImage x:Key="True" UriSource="/Resources/Images/True.png" />
+    <BitmapImage x:Key="False" UriSource="/Resources/Images/False.png" />
+    <BitmapImage x:Key="Folder" UriSource="/Resources/Images/Folder.png" />
+
+    <BitmapImage x:Key="Settings" UriSource="/Resources/Images/Settings.png" />
+
+    <Style x:Key="CustomWindow" TargetType="{x:Type Window}">
+        <Setter Property="WindowStyle" Value="None"/>
+        <Setter Property="AllowsTransparency" Value="True"/>
+        <Setter Property="BorderBrush" Value="{StaticResource BorderColor}"/>
+        <Setter Property="BorderThickness" Value="3"/>
+    </Style>
+
+
+    <Style x:Key="ButtonTemplate" TargetType="Button">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="Button">
+                    <Border Padding="{TemplateBinding Padding}" x:Name="Border" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="2" Background="{TemplateBinding Background}" RenderTransformOrigin="0.5,0.5">
+                        <Grid>
+                            <Viewbox MaxHeight="30">
+                                <TextBlock Text="{TemplateBinding Content}"/>
+                            </Viewbox>
+                            <Border Name="Border1" Background="White" Opacity="0"></Border>
+                        </Grid>
+                        <Border.RenderTransform>
+                            <ScaleTransform ScaleX="1" ScaleY="1"/>
+                        </Border.RenderTransform>
+                    </Border>
+                    <ControlTemplate.Triggers>
+
+                        <Trigger Property="IsEnabled" Value="True">
+                            <Trigger.EnterActions>
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <DoubleAnimation
+                                        Storyboard.TargetName="Border1" 
+                                        Storyboard.TargetProperty="(Border.Opacity)" 
+                                        AccelerationRatio="0.6" DecelerationRatio="0.4" To="0" Duration="0:0:0.2" />
+                                        <DoubleAnimation
+                                        Storyboard.TargetName="Border" 
+                                        Storyboard.TargetProperty="(Border.RenderTransform).(ScaleTransform.ScaleY)" 
+                                        AccelerationRatio="0.6" DecelerationRatio="0.4" To="1.1" Duration="0:0:0.2" />
+
+                                        <DoubleAnimation
+                                        Storyboard.TargetName="Border" 
+                                        Storyboard.TargetProperty="(Border.RenderTransform).(ScaleTransform.ScaleX)" 
+                                        AccelerationRatio="0.6" DecelerationRatio="0.4" To="1.1" Duration="0:0:0.2" />
+
+                                        <DoubleAnimation
+                                            BeginTime="0:0:0.2"
+                                            Storyboard.TargetName="Border" 
+                                            Storyboard.TargetProperty="(Border.RenderTransform).(ScaleTransform.ScaleY)" 
+                                            AccelerationRatio="0.6" DecelerationRatio="0.4" To="1" Duration="0:0:0.2" />
+                                        <DoubleAnimation
+                                            BeginTime="0:0:0.2"
+                                            Storyboard.TargetName="Border" 
+                                            Storyboard.TargetProperty="(Border.RenderTransform).(ScaleTransform.ScaleX)" 
+                                            AccelerationRatio="0.6" DecelerationRatio="0.4" To="1" Duration="0:0:0.2" />
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </Trigger.EnterActions>
+                            <Trigger.ExitActions>
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <DoubleAnimation
+                                        Storyboard.TargetName="Border1" 
+                                        Storyboard.TargetProperty="(Border.Opacity)" 
+                                        AccelerationRatio="0.6" DecelerationRatio="0.4" To="0.7" Duration="0:0:0.2" />
+                                        <DoubleAnimation
+                                        Storyboard.TargetName="Border" 
+                                        Storyboard.TargetProperty="(Border.RenderTransform).(ScaleTransform.ScaleY)" 
+                                        AccelerationRatio="0.6" DecelerationRatio="0.4" To="0.9" Duration="0:0:0.2" />
+
+                                        <DoubleAnimation
+                                        Storyboard.TargetName="Border" 
+                                        Storyboard.TargetProperty="(Border.RenderTransform).(ScaleTransform.ScaleX)" 
+                                        AccelerationRatio="0.6" DecelerationRatio="0.4" To="0.9" Duration="0:0:0.2" />
+
+                                        <DoubleAnimation
+                                            BeginTime="0:0:0.2"
+                                            Storyboard.TargetName="Border" 
+                                            Storyboard.TargetProperty="(Border.RenderTransform).(ScaleTransform.ScaleY)" 
+                                            AccelerationRatio="0.6" DecelerationRatio="0.4" To="1" Duration="0:0:0.2" />
+                                        <DoubleAnimation
+                                            BeginTime="0:0:0.2"
+                                            Storyboard.TargetName="Border" 
+                                            Storyboard.TargetProperty="(Border.RenderTransform).(ScaleTransform.ScaleX)" 
+                                            AccelerationRatio="0.6" DecelerationRatio="0.4" To="1" Duration="0:0:0.2" />
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </Trigger.ExitActions>
+                        </Trigger>
+
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Trigger.EnterActions>
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <DoubleAnimation
+                                        Storyboard.TargetName="Border" 
+                                        Storyboard.TargetProperty="(Border.RenderTransform).(ScaleTransform.ScaleY)" 
+                                        AccelerationRatio="0.5" DecelerationRatio="0.5" To="1.1" Duration="0:0:0.3"
+                                             />
+                                        <DoubleAnimation
+                                        Storyboard.TargetName="Border" 
+                                        Storyboard.TargetProperty="(Border.RenderTransform).(ScaleTransform.ScaleX)" 
+                                        AccelerationRatio="0.5" DecelerationRatio="0.5" To="1.1" Duration="0:0:0.3"
+                                           />
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </Trigger.EnterActions>
+                            <Trigger.ExitActions>
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <DoubleAnimation
+                                        Storyboard.TargetName="Border" 
+                                        Storyboard.TargetProperty="(Border.RenderTransform).(ScaleTransform.ScaleY)" 
+                                        AccelerationRatio="0.6" DecelerationRatio="0.4" To="1" Duration="0:0:0.5" />
+                                        <DoubleAnimation
+                                        Storyboard.TargetName="Border" 
+                                        Storyboard.TargetProperty="(Border.RenderTransform).(ScaleTransform.ScaleX)" 
+                                        AccelerationRatio="0.6" DecelerationRatio="0.4" To="1" Duration="0:0:0.5" />
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </Trigger.ExitActions>
+                        </Trigger>
+
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+
+            </Setter.Value>
+        </Setter>
+
+        <Setter Property="BorderBrush" Value="#ED7D31"></Setter>
+    </Style>
+
+    
+    <Style x:Key="ButtonImage" TargetType="Button">
+        <Setter Property="Background" Value="Transparent"/>
+        <Setter Property="BorderBrush" Value="White"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="Button">
+                    <Border x:Name="Border" Background="Transparent" RenderTransformOrigin="0.5,0.5">
+                        <Grid>
+                            <Image Name="Img1" Source="{TemplateBinding Content}" RenderTransformOrigin="0.5,0.5">
+                                <Image.RenderTransform>
+                                    <ScaleTransform ScaleX="1" ScaleY="1"/>
+                                </Image.RenderTransform>
+                            </Image>
+                            <Border Name="Border1" Background="{StaticResource BackgroundColor}" Opacity="0.7"></Border>
+                        </Grid>
+                        <Border.RenderTransform>
+                            <ScaleTransform ScaleX="1" ScaleY="1"/>
+                        </Border.RenderTransform>
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsEnabled" Value="True">
+                            <Trigger.EnterActions>
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <DoubleAnimation
+                                        Storyboard.TargetName="Border1" 
+                                        Storyboard.TargetProperty="(Border.Opacity)" 
+                                        AccelerationRatio="0.6" DecelerationRatio="0.4" To="0" Duration="0:0:0.2" />
+                                        <DoubleAnimation
+                                        Storyboard.TargetName="Border" 
+                                        Storyboard.TargetProperty="(Border.RenderTransform).(ScaleTransform.ScaleY)" 
+                                        AccelerationRatio="0.6" DecelerationRatio="0.4" To="1.1" Duration="0:0:0.2" />
+
+                                        <DoubleAnimation
+                                        Storyboard.TargetName="Border" 
+                                        Storyboard.TargetProperty="(Border.RenderTransform).(ScaleTransform.ScaleX)" 
+                                        AccelerationRatio="0.6" DecelerationRatio="0.4" To="1.1" Duration="0:0:0.2" />
+
+                                        <DoubleAnimation
+                                            BeginTime="0:0:0.2"
+                                            Storyboard.TargetName="Border" 
+                                            Storyboard.TargetProperty="(Border.RenderTransform).(ScaleTransform.ScaleY)" 
+                                            AccelerationRatio="0.6" DecelerationRatio="0.4" To="1" Duration="0:0:0.2" />
+                                        <DoubleAnimation
+                                            BeginTime="0:0:0.2"
+                                            Storyboard.TargetName="Border" 
+                                            Storyboard.TargetProperty="(Border.RenderTransform).(ScaleTransform.ScaleX)" 
+                                            AccelerationRatio="0.6" DecelerationRatio="0.4" To="1" Duration="0:0:0.2" />
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </Trigger.EnterActions>
+                            <Trigger.ExitActions>
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <DoubleAnimation
+                                        Storyboard.TargetName="Border1" 
+                                        Storyboard.TargetProperty="(Border.Opacity)" 
+                                        AccelerationRatio="0.6" DecelerationRatio="0.4" To="0.7" Duration="0:0:0.2" />
+                                        <DoubleAnimation
+                                        Storyboard.TargetName="Border" 
+                                        Storyboard.TargetProperty="(Border.RenderTransform).(ScaleTransform.ScaleY)" 
+                                        AccelerationRatio="0.6" DecelerationRatio="0.4" To="0.9" Duration="0:0:0.2" />
+
+                                        <DoubleAnimation
+                                        Storyboard.TargetName="Border" 
+                                        Storyboard.TargetProperty="(Border.RenderTransform).(ScaleTransform.ScaleX)" 
+                                        AccelerationRatio="0.6" DecelerationRatio="0.4" To="0.9" Duration="0:0:0.2" />
+
+                                        <DoubleAnimation
+                                            BeginTime="0:0:0.2"
+                                            Storyboard.TargetName="Border" 
+                                            Storyboard.TargetProperty="(Border.RenderTransform).(ScaleTransform.ScaleY)" 
+                                            AccelerationRatio="0.6" DecelerationRatio="0.4" To="1" Duration="0:0:0.2" />
+                                        <DoubleAnimation
+                                            BeginTime="0:0:0.2"
+                                            Storyboard.TargetName="Border" 
+                                            Storyboard.TargetProperty="(Border.RenderTransform).(ScaleTransform.ScaleX)" 
+                                            AccelerationRatio="0.6" DecelerationRatio="0.4" To="1" Duration="0:0:0.2" />
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </Trigger.ExitActions>
+                        </Trigger>
+
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Trigger.EnterActions>
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <DoubleAnimation
+                                        Storyboard.TargetName="Img1" 
+                                        Storyboard.TargetProperty="(Border.RenderTransform).(ScaleTransform.ScaleY)" 
+                                        AccelerationRatio="0.6" DecelerationRatio="0.4" To="1.1" Duration="0:0:0.2" />
+                                        <DoubleAnimation
+                                        Storyboard.TargetName="Img1" 
+                                        Storyboard.TargetProperty="(Border.RenderTransform).(ScaleTransform.ScaleX)" 
+                                        AccelerationRatio="0.6" DecelerationRatio="0.4" To="1.1" Duration="0:0:0.2" />
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </Trigger.EnterActions>
+                            <Trigger.ExitActions>
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <DoubleAnimation
+                                        Storyboard.TargetName="Img1" 
+                                        Storyboard.TargetProperty="(Border.RenderTransform).(ScaleTransform.ScaleY)" 
+                                        AccelerationRatio="0.6" DecelerationRatio="0.4" To="1" Duration="0:0:0.2" />
+                                        <DoubleAnimation
+                                        Storyboard.TargetName="Img1" 
+                                        Storyboard.TargetProperty="(Border.RenderTransform).(ScaleTransform.ScaleX)" 
+                                        AccelerationRatio="0.6" DecelerationRatio="0.4" To="1" Duration="0:0:0.2" />
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </Trigger.ExitActions>
+                        </Trigger>
+
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+</ResourceDictionary>

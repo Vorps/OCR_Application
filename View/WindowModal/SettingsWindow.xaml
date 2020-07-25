@@ -1,0 +1,32 @@
+﻿<Window x:Class="OCR.View.WindowModal.SettingsWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:OCR.View.WindowModal"
+        mc:Ignorable="d"
+        Title="SettingsWindow" WindowStartupLocation="CenterOwner" Height="170" Width="380"  Style="{StaticResource CustomWindow}" Background="{StaticResource BackgroundColor}">
+    <StackPanel>
+        <Label Content="Répertoire Models" Foreground="{StaticResource ForegroundColor}" HorizontalAlignment="Center" FontSize="14"></Label>
+        <StackPanel Orientation="Horizontal">
+            <TextBox Text="{Binding DirectoryModel, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Width="300" Margin="10 5 20 5" BorderBrush="{StaticResource BorderColor}" Background="{StaticResource BackgroundColor2}" Foreground="{StaticResource BorderColor}"></TextBox>
+            <Button Style="{StaticResource ButtonImage}" Command="{Binding DirectoryCommand}" CommandParameter="1" Content="{StaticResource Folder}" Height="30"></Button>
+        </StackPanel>
+
+       
+        <Label Content="Répertoire de l'application"  Foreground="{StaticResource ForegroundColor}" HorizontalAlignment="Center" FontSize="14"></Label>
+
+        <StackPanel Orientation="Horizontal">
+            <TextBox Width="300" Text="{Binding DirectoryApp,  Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Margin="10 5 20 5" BorderBrush="{StaticResource BorderColor}" Background="{StaticResource BackgroundColor2}" Foreground="{StaticResource BorderColor}"></TextBox>
+
+            <Button Style="{StaticResource ButtonImage}" Command="{Binding DirectoryCommand}" CommandParameter="2" Content="{StaticResource Folder}" Height="30"></Button>
+
+
+        </StackPanel>
+
+        <StackPanel Orientation="Horizontal">
+            <Button Margin="50 0 50 0" Content="Annuler" Width="100" Command="{Binding CancelCommand}" Style="{StaticResource ButtonTemplate}" Background="{StaticResource BorderColor}" BorderBrush="{StaticResource ButtonBorderColor}" Height="25"></Button>
+            <Button Margin="10" Content="Valider" Width="100" Command="{Binding ValiderCommand}" Style="{StaticResource ButtonTemplate}" Background="{StaticResource ButtonColor}" BorderBrush="{StaticResource ButtonBorderColor}" Height="25"></Button>
+        </StackPanel>
+    </StackPanel>
+</Window>
